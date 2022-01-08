@@ -23,6 +23,13 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('admin.dashboard');
+        $user = \DB::table('users')->count();
+        $doctors = \DB::table('doctors')->count();
+        $inpatients = \DB::table('in_patients')->count();
+        $beds = \DB::table('beds')->count();
+        $departments = \DB::table('departments')->count();
+        $employees = \DB::table('departments')->count();
+
+        return view('admin.dashboard',  compact('user', 'doctors', 'inpatients', 'beds', 'departments'));
     }
 }
